@@ -1,5 +1,5 @@
 
-package com.program;
+package com.program.collection;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

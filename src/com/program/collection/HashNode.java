@@ -1,13 +1,17 @@
-package com.program;
+package com.program.collection;
 
-public class Entry<K, V> {
+public class HashNode<K, V> {
 
 	private K key;
+
 	private V value;
-	private Entry<K, V> next;
-	private int hash;
+
+	private HashNode<K, V> next;
 	
-	public Entry(K key, V value, Entry<K, V> next, int hash) {
+	private int hash;
+
+	public HashNode(K key, V value, HashNode<K, V> next, int hash) {
+		super();
 		this.key = key;
 		this.value = value;
 		this.next = next;
@@ -30,11 +34,11 @@ public class Entry<K, V> {
 		this.value = value;
 	}
 
-	public Entry<K, V> getNext() {
+	public HashNode<K, V> getNext() {
 		return next;
 	}
 
-	public void setNext(Entry<K, V> next) {
+	public void setNext(HashNode<K, V> next) {
 		this.next = next;
 	}
 
@@ -57,6 +61,7 @@ public class Entry<K, V> {
 		return result;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -65,8 +70,7 @@ public class Entry<K, V> {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		@SuppressWarnings("unchecked")
-		Entry<K, V> other = (Entry<K, V>) obj;
+		HashNode<K, V> other = (HashNode) obj;
 		if (hash != other.hash)
 			return false;
 		if (key == null) {
@@ -89,8 +93,7 @@ public class Entry<K, V> {
 
 	@Override
 	public String toString() {
-		return "Entry [key=" + key + ", value=" + value + ", next=" + next + ", hash=" + hash + "]";
+		return "HashNode [key=" + key + ", value=" + value + ", next=" + next + ", hash=" + hash + "]";
 	}
-	
 	
 }
